@@ -83,8 +83,8 @@ public/     static web page (Italian UI)
 
 ## Workflow
 
-- Linear: workspace "Elia", team `ELI`, project **Chessiballa**. Track work as issues there.
-- Git: one branch per Linear issue (e.g. `eli-12-agent-pipeline`), Conventional Commits
+- Linear: workspace "Elia", team `ELIA`, project **Chessiballa**. Track work as issues there.
+- Git: one branch per Linear issue (e.g. `elia-12-agent-pipeline`), Conventional Commits
   (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`), small focused commits, merge via PR.
 - Do not push, create the GitHub repo, or open PRs unless the user asks. The GitHub repo
   will be public under the `signorpipo` account.
