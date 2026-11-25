@@ -15,6 +15,10 @@ briefly when they are not obvious.
 - **Website UI text:** Italian.
 - **Everything else is English:** code, identifiers, comments, file and folder names,
   commit messages, branch names, PR descriptions, Linear issues, docs (including this file).
+- **Human-facing prose should not read as AI-written.** For text people read (README and
+  other public docs, website UI copy, PR descriptions, Linear issues, release notes), run
+  the `avoid-ai-writing` or `humanizer` skill before finishing, unless the text is a line or
+  two. Not needed for this file, code comments or commit messages.
 
 ## Name and brand
 

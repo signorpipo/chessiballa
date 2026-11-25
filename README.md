@@ -1,28 +1,26 @@
 # Chessiballa?
 
-One button, one question: _where can we go dancing, gay Milan, from now until Sunday?_
-("Chessiballa?" is Italian chat-speak for "what are we dancing to?")
+A web page with one button that finds gay dance nights in Milan and the surrounding area,
+from today until Sunday. ("Chessiballa?" is Italian chat-speak for "what are we dancing
+to?")
 
-Clicking the button runs a small pipeline of Claude agents (researcher → reviewer →
-formatter). They search the web for gay dance nights in Milan and its hinterland, keep only
-the ones between now and Sunday, and show them as cards. You watch the agents work live:
-every search, every page read, every event discarded. The UI is in Italian and built for
-phones first.
+The button starts three Claude agents. A researcher searches the web, a reviewer drops
+anything off-topic or outside the dates, and a formatter turns what is left into event
+cards. While they work, the page shows what they are doing. The UI is in Italian and
+designed for phones.
 
-It is a toy and a learning playground for Claude Code, the Claude Agent SDK, GitHub and
+The project is a toy, and also a way to learn Claude Code, the Claude Agent SDK, GitHub and
 Linear.
 
 ## How it works
 
-- **Live progress:** the page streams what the agents are really doing.
-- **Certainty labels:** each event is marked _confirmed_, _recurring_ or _unverified_.
-- **Replay cache:** your first click runs the real search; clicking again within 12 hours
-  replays it from your browser at no cost.
-- **Demo mode:** when the API credit runs out, the page plays a demo with invented example
-  events.
-- **Cost guards:** a total budget cap, a per-run token cap and an expiry date.
+- Each event is labelled _confirmed_, _recurring_ or _unverified_.
+- Your first click runs a real search. Clicking again within 12 hours replays that search
+  from your browser without calling the API.
+- When the API credit runs out, the page plays a demo with made-up events.
+- Spending is capped by a total budget, a per-run token limit and an expiry date.
 
-> Work in progress. See [CLAUDE.md](CLAUDE.md) for the full spec, conventions and roadmap.
+> Work in progress. [CLAUDE.md](CLAUDE.md) has the full spec, conventions and roadmap.
 
 ## Getting started
 
