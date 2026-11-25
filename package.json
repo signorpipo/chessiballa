@@ -1,0 +1,17 @@
+{
+  "name": "milanoclub",
+  "version": "0.1.0",
+  "description": "Finds this weekend's gay events in Milan with a multi-agent Claude pipeline.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.10",
+    "typescript": "^7.0.2"
+  }
+}
