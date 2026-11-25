@@ -9,7 +9,7 @@ anything off-topic or outside the dates, and a formatter turns what is left into
 cards. While they work, the page shows what they are doing. The UI is in Italian and
 designed for phones.
 
-The project is a toy, and also a way to learn Claude Code, the Claude Agent SDK, GitHub and
+The project is a toy, and also a way to learn Claude Code, building agents on the Claude API, GitHub and
 Linear.
 
 ## How it works

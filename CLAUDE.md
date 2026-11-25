@@ -4,7 +4,7 @@ A small web app with one button: "show me the gay dance nights in Milan from now
 Sunday". Clicking it runs a multi-agent pipeline that searches the web, reviews the findings
 and returns event cards for the page to display. It is a toy meant to show agents at work.
 
-The project is also a learning playground for Claude Code: agents (Claude Agent SDK),
+The project is also a learning playground for Claude Code: agents (Claude API with tools),
 GitHub and Linear integration, and a full vibe-coding workflow. The owner is learning, so
 favour standard, widely used conventions over clever or custom ones, and explain choices
 briefly when they are not obvious.
@@ -76,14 +76,24 @@ briefly when they are not obvious.
 ## Architecture (planned)
 
 ```
-[Web page] --click--> [server] --> agent pipeline (Claude Agent SDK)
-                                          1. Researcher: web search on club sites and event portals
-                                          2. Reviewer: keep only the time window, dedupe, check sources
-                                          3. Formatter: structured JSON (no HTML)
-                     <-- events JSON ----
+[Web page] --click--> [server] --> agent pipeline (Claude API, server-side tools)
+                                     1. Researcher: web_search + web_fetch on club sites and portals
+                                     2. Reviewer: time window, dedupe, check sources; may ask for
+                                        another targeted search (back to 1, max N rounds)
+                                     3. Formatter: structured outputs (JSON schema, no HTML)
+                     <-- progress stream + events JSON ----
 [Page renders cards from a fixed template]
 ```
 
+- **Agent approach (decided 2026-11-25):** plain Claude API (`@anthropic-ai/sdk`) with the
+  server-side `web_search` and `web_fetch` tools, not the Claude Agent SDK. Each role is
+  one call with its own system prompt; inside a call Claude decides which searches to run
+  and pages to read (agentic), while our code orchestrates the outer loop (workflow):
+  order of roles, max review rounds, `max_uses` per tool. Why: the Agent SDK runs a Claude
+  Code subprocess (~1 GiB RAM, 1 CPU per run) and brings file and shell tools we do not
+  need; server-side tools keep our server light and cheap to host.
+- Handle `pause_turn` (resend to continue) and stream events so searches and fetched
+  pages can be shown in the live log.
 - The API key lives only on the server, never in the browser.
 - Agents output **JSON, not HTML**. The frontend renders it with a fixed template and
   inserts values with `textContent` (no `innerHTML` with model output). Links must start
@@ -148,7 +158,7 @@ public/     static web page (Italian UI)
 
 ## Tools available to Claude
 
-- **Skills:** `claude-api` (read before writing any Agent SDK / API code; do not rely on
+- **Skills:** `claude-api` (read before writing any Claude API code; do not rely on
   memory), `ponytail` (keep changes minimal), `impeccable` (builds and polishes the
   UI) plus the anti-slop principles of `design-taste-frontend` (not its company-site gate), `code-review`, `security-review`, `run`.
   Compliance and discoverability: `accessibility-engineering` (WCAG 2.2 AA audit and fixes),
@@ -164,7 +174,7 @@ public/     static web page (Italian UI)
 
 ## Roadmap
 
-1. Research: Claude Agent SDK, which event sources are readable
+1. Research: agent approach (done: Claude API + server-side tools), which event sources are readable
 2. Setup: repo, tooling, this file
 3. Agent pipeline runnable from the CLI
 4. Server + web UI
