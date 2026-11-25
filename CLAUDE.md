@@ -1,4 +1,4 @@
-# MilanoClub
+# Chessiballa?
 
 A small local web app with one button: "show me this weekend's gay events in Milan".
 Clicking it runs a multi-agent pipeline that searches the web, reviews the findings and
@@ -15,6 +15,17 @@ briefly when they are not obvious.
 - **Website UI text:** Italian.
 - **Everything else is English:** code, identifiers, comments, file and folder names,
   commit messages, branch names, PR descriptions, Linear issues, docs (including this file).
+
+## Name and brand
+
+- **Brand name:** "Chessiballa?" — Italian chat-speak for "what's on for dancing?". The
+  question mark is part of the brand: use it in the UI, page title, logo, images and README
+  title.
+- **Logo/wordmark:** one word, lowercase "b", with "chessi" and "balla" set in two different
+  fonts or weights to make it pop and show where "balla" starts.
+- **Tagline (UI):** "le serate queer di Milano, questo weekend".
+- **Technical identifiers have no question mark and are lowercase:** repo, folder, package
+  name, branches, env vars → `chessiballa`. In prose (docs, issues) write "Chessiballa".
 
 ## Architecture (planned)
 
@@ -63,7 +74,7 @@ public/     static web page (Italian UI)
 
 - The Anthropic API key goes only in `.env` (git-ignored). `.env.example` lists the variables
   with no values. Never ask the user to paste the key in chat; they paste it into `.env`.
-- The key belongs to a dedicated Anthropic Console workspace ("MilanoClub") with a spend limit
+- The key belongs to a dedicated Anthropic Console workspace with a spend limit
   and prepaid credit with auto-reload off.
 - The server enforces cost guards, all configurable via env: access code, daily request cap,
   total budget cap (computed from token usage in API responses), expiry date, and a
@@ -72,7 +83,7 @@ public/     static web page (Italian UI)
 
 ## Workflow
 
-- Linear: workspace "Elia", team `ELI`, project **MilanoClub**. Track work as issues there.
+- Linear: workspace "Elia", team `ELI`, project **Chessiballa**. Track work as issues there.
 - Git: one branch per Linear issue (e.g. `eli-12-agent-pipeline`), Conventional Commits
   (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`), small focused commits, merge via PR.
 - Do not push, create the GitHub repo, or open PRs unless the user asks. The GitHub repo

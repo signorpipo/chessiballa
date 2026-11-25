@@ -1,5 +1,5 @@
 {
-  "name": "milanoclub",
+  "name": "chessiballa",
   "version": "0.1.0",
   "description": "Finds this weekend's gay events in Milan with a multi-agent Claude pipeline.",
   "private": true,

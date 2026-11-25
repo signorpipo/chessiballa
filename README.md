@@ -1,6 +1,9 @@
-# MilanoClub
+# Chessiballa?
+
+_Le serate queer di Milano, questo weekend._
 
 One button, one question: _what gay parties are on in Milan this weekend?_
+("Chessiballa?" is Italian chat-speak for "what are we dancing to?")
 
 Clicking the button runs a small pipeline of Claude agents (researcher → reviewer →
 formatter) that searches club sites and event portals, keeps only this weekend's events,
