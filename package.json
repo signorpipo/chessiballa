@@ -2,6 +2,7 @@
   "name": "chessiballa",
   "version": "0.1.0",
   "description": "Finds this weekend's gay events in Milan with a multi-agent Claude pipeline.",
+  "author": "Elia",
   "private": true,
   "type": "module",
   "engines": {
