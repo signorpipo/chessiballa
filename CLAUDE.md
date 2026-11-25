@@ -50,8 +50,9 @@ briefly when they are not obvious.
   "discarding Z: drag show only").
 - **Per-browser replay cache:** each user's first click runs the real pipeline. Within 12
   hours, further clicks replay the recorded progress and results with the same timing, in
-  the user's browser, without new API calls and with no visible difference. `?debug=1`
-  bypasses the cache and forces a real run.
+  the user's browser, without new API calls and with no visible difference. A hidden
+  debug switch forces a real run; its details live in `CLAUDE.local.md` (git-ignored) and
+  must never appear in public docs.
 - **Demo mode:** when the key is expired or the budget is spent, show a message, fake
   progress and invented but plausible events (generated from a saved real run), clearly
   labelled as examples.

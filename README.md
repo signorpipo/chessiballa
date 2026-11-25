@@ -17,7 +17,7 @@ Linear.
 - **Live progress:** the page streams what the agents are really doing.
 - **Certainty labels:** each event is marked _confirmed_, _recurring_ or _unverified_.
 - **Replay cache:** your first click runs the real search; clicking again within 12 hours
-  replays it from your browser at no cost. Add `?debug=1` to the URL to force a real run.
+  replays it from your browser at no cost.
 - **Demo mode:** when the API credit runs out, the page plays a demo with invented example
   events.
 - **Cost guards:** a total budget cap, a per-run token cap and an expiry date.
