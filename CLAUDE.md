@@ -128,8 +128,11 @@ public/     static web page (Italian UI)
 ## Workflow
 
 - Linear: workspace "Elia", team `ELIA`, project **Chessiballa**. Track work as issues there.
-- Git: one branch per Linear issue (e.g. `elia-12-agent-pipeline`), Conventional Commits
-  (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`), small focused commits, merge via PR.
+- Git: Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`), small
+  focused commits.
+  - Small, quick changes (docs, minor config or tooling tweaks): commit directly on `main`.
+  - Features and larger changes: one branch per Linear issue (e.g. `elia-12-agent-pipeline`),
+    merged via PR.
 - Do not push, create the GitHub repo, or open PRs unless the user asks. The GitHub repo
   will be public under the `signorpipo` account.
 - Before merging: run typecheck, lint and format check; use the `code-review` skill, and
