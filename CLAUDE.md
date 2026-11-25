@@ -141,13 +141,24 @@ public/     static web page (Italian UI)
 - Do not push, create the GitHub repo, or open PRs unless the user asks. The GitHub repo
   will be public under the `signorpipo` account.
 - Before merging: run typecheck, lint and format check; use the `code-review` skill, and
-  `security-review` for anything touching the server, secrets or user input.
+  `security-review` for anything touching the server, secrets or user input. For UI changes
+  also run `accessibility-engineering` (WCAG 2.2 AA). If a change adds cookies, storage,
+  logging, analytics or any third-party resource (fonts, CDNs, embeds), update the privacy
+  notice with `privacy-policy`.
 
 ## Tools available to Claude
 
 - **Skills:** `claude-api` (read before writing any Agent SDK / API code; do not rely on
   memory), `ponytail` (keep changes minimal), `impeccable` (builds and polishes the
   UI) plus the anti-slop principles of `design-taste-frontend` (not its company-site gate), `code-review`, `security-review`, `run`.
+  Compliance and discoverability: `accessibility-engineering` (WCAG 2.2 AA audit and fixes),
+  `privacy-policy` (drafts the privacy notice; flags clauses that need legal review),
+  `seo-geo` (search and AI-answer visibility; mainly before the public deploy, since the
+  link spreads on WhatsApp and Open Graph tags matter more than ranking).
+- **Compliance basics:** the site is about gay nights, so a visitor's data can reveal sexual
+  orientation (a GDPR special category). No third-party trackers or analytics, self-host
+  fonts and scripts instead of loading them from Google or CDNs, and link event images from
+  their source instead of re-hosting them.
 - **MCP / CLI:** GitHub connector and `gh` CLI (logged in as `signorpipo`), Linear connector,
   Playwright and the built-in browser for checking the UI, Mobbin and Figma for references.
 
