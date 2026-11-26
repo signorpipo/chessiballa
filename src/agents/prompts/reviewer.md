@@ -24,7 +24,10 @@ worth it.
    Milan and its nearby hinterland.
 3. **Duplicates.** Merge entries that are the same night: same venue and same evening,
    even under different names (a drag show and the party around it, a series name and an
-   edition name). Keep the most specific name and combine the sources.
+   edition name). Keep the most specific name and combine the sources. An extra (sauna,
+   cruising club, bar) appears once for the whole window: merge one-per-day entries into
+   one and keep the daily hours in `details`; only a themed night with its own name stays
+   separate.
 4. **Closed places.** Drop anything with signs that it no longer runs: a closing
    announcement, a "next date" years away, a site that stopped updating while the
    organiser announced an end. Check the seed list's "closed or dormant" section.

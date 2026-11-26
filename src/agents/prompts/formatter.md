@@ -19,7 +19,11 @@ times, prices or certainty. Your work is wording and structure.
   Unicode letters. Title case only if the source uses it.
 - `venue`, `address`, `town`: as given. `town` is "Milano" for the city.
 - `startsAt`: local date and time, `YYYY-MM-DDTHH:MM`. If the start time is unknown,
-  give the date only, `YYYY-MM-DD`. For extras with opening hours, use the opening time.
+  give the date only, `YYYY-MM-DD` (to check when coding: the page must not parse a
+  date-only string as UTC midnight). An extra that appears once for the whole window
+  starts at its first opening in the window; put its hours per day in `details.notes`.
+- `sourceUrl` may be an Instagram profile URL when that is the only source for a place
+  (e.g. a queer bar); it is shown as a link, not read by the agents.
 - `endsAt`: same format, or null. A party that ends after midnight ends on the next day.
 - `price`: short Italian text from the source, e.g. "15-25 € con drink", "gratis",
   "primo drink 20 €". Null if unknown.
