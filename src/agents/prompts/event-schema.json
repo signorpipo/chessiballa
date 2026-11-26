@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "name",
+          "venue",
+          "address",
+          "town",
+          "startsAt",
+          "endsAt",
+          "price",
+          "needsArcoCard",
+          "description",
+          "imageUrl",
+          "sourceUrl",
+          "ticketUrl",
+          "certainty",
+          "certaintyNote",
+          "details"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": ["dance", "cruising", "sauna", "bar"]
+          },
+          "name": { "type": "string" },
+          "venue": { "type": "string" },
+          "address": { "type": ["string", "null"] },
+          "town": { "type": "string" },
+          "startsAt": {
+            "type": "string",
+            "description": "YYYY-MM-DDTHH:MM, or YYYY-MM-DD if the time is unknown"
+          },
+          "endsAt": { "type": ["string", "null"] },
+          "price": { "type": ["string", "null"] },
+          "needsArcoCard": { "type": ["boolean", "null"] },
+          "description": { "type": "string" },
+          "imageUrl": { "type": ["string", "null"] },
+          "sourceUrl": { "type": "string" },
+          "ticketUrl": { "type": ["string", "null"] },
+          "certainty": {
+            "type": "string",
+            "enum": ["confirmed", "recurring", "unverified"]
+          },
+          "certaintyNote": { "type": "string" },
+          "details": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "images",
+              "djs",
+              "performers",
+              "crowd",
+              "music",
+              "dressCode",
+              "notes"
+            ],
+            "properties": {
+              "images": { "type": "array", "items": { "type": "string" } },
+              "djs": { "type": "array", "items": { "type": "string" } },
+              "performers": { "type": "array", "items": { "type": "string" } },
+              "crowd": { "type": "array", "items": { "type": "string" } },
+              "music": { "type": "array", "items": { "type": "string" } },
+              "dressCode": { "type": ["string", "null"] },
+              "notes": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    }
+  }
+}
