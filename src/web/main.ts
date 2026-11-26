@@ -28,8 +28,21 @@ const status = getElement<HTMLParagraphElement>("#status");
 const list = getElement<HTMLUListElement>("#events");
 const template = getElement<HTMLTemplateElement>("#event-card");
 
+const dayFormatter = new Intl.DateTimeFormat("it-IT", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+});
+
 // A bad date from the server must not break the whole list: show the raw text instead.
+// "2026-11-28" (time unknown) would parse as UTC midnight, so build it as a local day
+// and show it without a time.
 function formatStart(startsAt: string): string {
+  const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(startsAt);
+  if (dateOnly) {
+    const [, year, month, day] = dateOnly.map(Number);
+    return dayFormatter.format(new Date(year!, month! - 1, day));
+  }
   const date = new Date(startsAt);
   return Number.isNaN(date.getTime()) ? startsAt : dateFormatter.format(date);
 }

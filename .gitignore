@@ -23,3 +23,6 @@ Thumbs.db
 # Claude Code local settings and private notes
 .claude/settings.local.json
 CLAUDE.local.md
+
+# Saved pipeline runs (may hold scraped data)
+runs/
