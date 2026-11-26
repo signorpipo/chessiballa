@@ -107,6 +107,12 @@ live log, e.g. `Scartata La Boum: chiusa (in bio "NEXT: 2070")` or
 
 Then a short list of leads you could not check, if any.
 
+Last, a list of **big upcoming events** you happened to see outside the window (circuit
+parties like COX, New Year's Eve parties, Pride, bear or leather weekends in Milan): one
+line each with name, date, venue and source URL. Don't search for them on purpose; just
+note what you come across. They are not shown this week but are kept for later (ELIA-21,
+ELIA-23).
+
 ---
 
 ## User message template
