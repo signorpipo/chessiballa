@@ -103,7 +103,8 @@ briefly when they are not obvious.
 
 ## Stack and conventions
 
-- TypeScript in `strict` mode, ES modules, Node.js 22+.
+- TypeScript in `strict` mode, ES modules, Node.js 24 (pinned as `24.x` in `package.json`
+  so Vercel does not jump to a new major on its own).
 - ESLint (`typescript-eslint`) for linting, Prettier for formatting. Run both before committing.
 - Naming: `camelCase` for variables and functions, `PascalCase` for types, classes and
   components, `UPPER_SNAKE_CASE` for constants and env vars, `kebab-case` for file names.

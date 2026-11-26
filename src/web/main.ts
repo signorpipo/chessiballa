@@ -28,15 +28,28 @@ const status = getElement<HTMLParagraphElement>("#status");
 const list = getElement<HTMLUListElement>("#events");
 const template = getElement<HTMLTemplateElement>("#event-card");
 
+// A bad date from the server must not break the whole list: show the raw text instead.
+function formatStart(startsAt: string): string {
+  const date = new Date(startsAt);
+  return Number.isNaN(date.getTime()) ? startsAt : dateFormatter.format(date);
+}
+
+// Only well-formed https links are shown.
+function isSafeLink(value: string): boolean {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 // Values come from the server (later from the model), so they are only ever set with
 // textContent, never as HTML.
 function renderCard(event: DanceEvent): HTMLLIElement {
   const fragment = template.content.cloneNode(true) as DocumentFragment;
   const card = getElement<HTMLLIElement>(".card", fragment);
 
-  getElement(".when", card).textContent = dateFormatter.format(
-    new Date(event.startsAt),
-  );
+  getElement(".when", card).textContent = formatStart(event.startsAt);
   getElement(".name", card).textContent = event.name;
   getElement(".where", card).textContent = `${event.venue} · ${event.town}`;
   getElement(".description", card).textContent = event.description;
@@ -45,7 +58,7 @@ function renderCard(event: DanceEvent): HTMLLIElement {
     CERTAINTY_LABELS[event.certainty];
 
   const source = getElement<HTMLAnchorElement>(".source", card);
-  if (event.sourceUrl.startsWith("https://")) {
+  if (isSafeLink(event.sourceUrl)) {
     source.href = event.sourceUrl;
   } else {
     source.remove();
@@ -62,15 +75,20 @@ async function loadEvents(): Promise<void> {
   try {
     const response = await fetch("/api/events");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const { events } = (await response.json()) as EventsResponse;
+    const { events } = (await response.json()) as Partial<EventsResponse>;
+    if (!Array.isArray(events)) throw new Error("Unexpected response shape");
 
     if (events.length === 0) {
       status.textContent = "Mi sa che stasera resti a casa.";
       return;
     }
-    status.textContent = `Trovate ${events.length} serate.`;
+    status.textContent =
+      events.length === 1
+        ? "Trovata 1 serata."
+        : `Trovate ${events.length} serate.`;
     list.replaceChildren(...events.map(renderCard));
-  } catch {
+  } catch (error) {
+    console.error(error);
     status.textContent = "Qualcosa è andato storto. Riprova tra poco.";
   } finally {
     button.disabled = false;
