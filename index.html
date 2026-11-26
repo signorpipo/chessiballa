@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chessiballa?</title>
+    <link rel="stylesheet" href="/src/web/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="wordmark"><span>chessi</span><b>balla</b>?</h1>
+
+      <button id="search" type="button">Fammi vedere le serate</button>
+      <p id="status" role="status" aria-live="polite"></p>
+
+      <ul id="events"></ul>
+    </main>
+
+    <template id="event-card">
+      <li class="card">
+        <p class="when"></p>
+        <h2 class="name"></h2>
+        <p class="where"></p>
+        <p class="description"></p>
+        <p class="meta">
+          <span class="price"></span>
+          <span class="certainty"></span>
+        </p>
+        <a class="source" target="_blank" rel="noopener noreferrer">Fonte</a>
+      </li>
+    </template>
+
+    <script type="module" src="/src/web/main.ts"></script>
+  </body>
+</html>
