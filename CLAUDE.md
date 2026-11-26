@@ -37,12 +37,19 @@ briefly when they are not obvious.
 - **Audience:** the owner and friends, on a real public deploy. No access code.
 - **What counts as an event:** nights where people dance, gay male or strongly gay-friendly.
   Aperitivo + dancing and daytime parties count; drag shows without dancing do not.
-  Weeknights count too.
-- **Area:** Milan and its hinterland; each event shows its town.
+  Weeknights count too. Nights only for queer women and mixed club privé are out.
+- **Extras (agreed 2026-11-26):** cruising clubs, gay saunas and queer bars are shown too,
+  in a separate section, with what kind of night or place it is (the `kind` field).
+- **Area:** Milan and the nearby hinterland (e.g. Sesto San Giovanni, Corsico), not other
+  provinces; each event shows its town.
 - **Time window:** from the click until the end of Sunday of the current week. On Saturday
   or Sunday it also covers the following week, shown as two sections ("this weekend is
   almost over" / "next week").
-- **Sources:** free web search only; agents must find recurring nights on their own.
+- **Sources:** free web search and page reads only. The Researcher starts from a seed list
+  of known nights and readable sources (`src/agents/prompts/known-sources.md`, from the
+  2026-11-26 research) but must also look beyond it. Instagram and Facebook need a login,
+  so the pipeline does not use them; Linktree pages, venue and organiser sites, ARCO club
+  pages, Patroc, Xceed, ticket pages and public Telegram channels (`t.me/s/...`) work.
 - **Event data:** name, venue, town, day and start time, price, one image if found, short
   Italian description, source link. Expanded view: more images, DJs, vibe tags (crowd,
   music, dress code) and other details. Everything is collected in the same run.

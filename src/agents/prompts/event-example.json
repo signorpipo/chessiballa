@@ -1,0 +1,58 @@
+{
+  "events": [
+    {
+      "id": "toilet-plastic-surgery-2026-11-27",
+      "kind": "dance",
+      "name": "Toilet Plastic Surgery",
+      "venue": "Amnesia",
+      "address": "Via Alfonso Gatto, Milano",
+      "town": "Milano",
+      "startsAt": "2026-11-27T23:30",
+      "endsAt": "2026-11-28T05:00",
+      "price": "15-25 € con drink",
+      "needsArcoCard": false,
+      "description": "La serata queer del venerdì all'Amnesia: due piste tra pop, disco ed elettronica, con drag e club kid.",
+      "imageUrl": null,
+      "sourceUrl": "https://toiboy.it/",
+      "ticketUrl": "https://www.ticketsms.it/event/Toilet-Plastic-Surgery-Milano-Amnesia-Milano-27-11-2026",
+      "certainty": "confirmed",
+      "certaintyNote": "Annunciata sul sito di Toilet con il link ai biglietti.",
+      "details": {
+        "images": [],
+        "djs": ["LoZelmo"],
+        "performers": [],
+        "crowd": ["queer", "misto"],
+        "music": ["pop", "disco", "elettronica"],
+        "dressCode": null,
+        "notes": null
+      }
+    },
+    {
+      "id": "hot-dog-naked-underwear-2026-11-26",
+      "kind": "cruising",
+      "name": "Naked & Underwear",
+      "venue": "Hot Dog Club",
+      "address": "Via Oropa 3, Milano",
+      "town": "Milano",
+      "startsAt": "2026-11-26T21:00",
+      "endsAt": "2026-11-27T04:00",
+      "price": "15 €, 10 € sotto i 30, drink e armadietto inclusi",
+      "needsArcoCard": true,
+      "description": "Il giovedì del cruising club di Via Oropa: si entra nudi o in intimo.",
+      "imageUrl": null,
+      "sourceUrl": "https://www.hotdogclubmilano.it/eventi-serate/",
+      "ticketUrl": null,
+      "certainty": "recurring",
+      "certaintyNote": "Serata fissa del giovedì secondo il sito del locale.",
+      "details": {
+        "images": [],
+        "djs": [],
+        "performers": [],
+        "crowd": ["uomini"],
+        "music": [],
+        "dressCode": "nudo o intimo",
+        "notes": "Solo soci ARCO, maggiorenni."
+      }
+    }
+  ]
+}
