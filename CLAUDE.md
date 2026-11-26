@@ -108,21 +108,34 @@ briefly when they are not obvious.
 - Naming: `camelCase` for variables and functions, `PascalCase` for types, classes and
   components, `UPPER_SNAKE_CASE` for constants and env vars, `kebab-case` for file names.
 - Keep it small: no extra dependencies, abstractions or config without a concrete need.
-- Server framework, frontend tooling and final folder layout are decided after the research
-  phase; update this file when they are.
+- **Server (decided 2026-11-26):** Hono. Routes live under `/api`.
+- **Frontend (decided 2026-11-26):** plain HTML, CSS and TypeScript, no UI framework, built
+  with Vite. Animations use CSS, the Web Animations API and canvas. Fonts are self-hosted.
+- **Hosting (decided 2026-11-26):** Vercel Hobby (free, no card), deployed from GitHub; every
+  branch gets a preview URL. No Docker. Google Cloud Run was dropped (prepayment required,
+  more setup). Vercel builds the Vite page as static files and runs the Hono app as one
+  Vercel Function. Hobby functions stop after **300 s**, so a pipeline run must finish well
+  before that (target 1-3 minutes).
+- **Local dev:** `npm run dev` starts Vite, which also runs the Hono app in the same process
+  (`@hono/vite-dev-server`), so page and API share one localhost URL.
 
-## Folder layout (provisional)
+## Folder layout
 
 ```
+api/        Vercel Function entry; re-exports the Hono app
 src/
   agents/   agent definitions and the pipeline
-  server/   HTTP server, cost guards
+  server/   Hono app, cost guards
   shared/   types shared by server and web (e.g. the Event shape)
-public/     static web page (Italian UI)
+  web/      page scripts and styles (Italian UI)
+index.html  page entry for Vite
+public/     static files copied as-is (icons, fonts)
 ```
 
 ## Commands
 
+- `npm run dev` – local dev server (page + API)
+- `npm run build` – production build of the page (what Vercel runs)
 - `npm run typecheck` – TypeScript check
 - `npm run lint` – ESLint
 - `npm run format` / `npm run format:check` – Prettier
