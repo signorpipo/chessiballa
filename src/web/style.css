@@ -1,0 +1,108 @@
+/* Bare-bones styles for the skeleton. The real design comes later (ELIA-13, ELIA-14). */
+
+:root {
+  color-scheme: dark;
+  --bg: #0d0d0d;
+  --text: #f2f2f2;
+  --muted: #a6a6a6;
+  --accent: #c6ff3d;
+  --card: #1a1a1a;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.wordmark {
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+  line-height: 1;
+  margin: 0 0 2rem;
+}
+
+.wordmark span {
+  font-weight: 300;
+}
+
+.wordmark b {
+  font-weight: 900;
+  color: var(--accent);
+}
+
+#search {
+  width: 100%;
+  padding: 1rem;
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#search:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+#search:focus-visible,
+.source:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+#status {
+  min-height: 1.5em;
+  color: var(--muted);
+}
+
+#events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  background: var(--card);
+  border-radius: 0.5rem;
+}
+
+.card p,
+.card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.when {
+  color: var(--accent);
+}
+
+.when::first-letter {
+  text-transform: uppercase;
+}
+
+.where,
+.meta {
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+}
+
+.source {
+  color: var(--accent);
+}
